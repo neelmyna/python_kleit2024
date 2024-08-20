@@ -87,6 +87,15 @@ Steps to Sync our Git Repo to our local machine:
 	Now run the Command: git clone <URL with PAT>
 	You should get the Repo folder in your system/laptop
 	Copy the necessary files and folders into your Repo folder
+	
+Steps to Sync Local Repo with Cloud Repo:
+	1. Click on +  (stage the changes)
+	2. Add the relevant message in message box and click Commit
+	3. Click Sync and Click Ok
+
+MAKE SURE YOU CONFIGURE YOUR USER.NAME AND USER.EMAIL IN GIT:
+	$ git config --global user.name "neelmyna"
+	$ git config --global user.email "nithincheeta@email.com"
 ------------------------------------------------------
 p1.py
 # Assign a number into a variable and check if the number is Even.
@@ -161,20 +170,32 @@ c1 and c2 and c3 ...... and c10
 	do this job-1
 In the case of OR, put that condition 1st which has highest probability to succeed.
 c1 or c2 or c3 or c4
+---------------------------------------------
+if avg_score >= 0 and avg_score <= 49:
 
+if avg_score <= 49 and avg_score >= 0:
 
+The above stmt can also be written as:
 
+if avg_score > -1 and avg_score < 50:
 
+Relational Operators:
+> < >= <= == !=
 
+https://github.com/neelmyna/python_kleit2024
 
+p6.py
+Program to check if the alphabet is uppercase
 
-	
+p7.py
+Program to check if a number is Perfect Square
 
+p8.py
+Program to check if user given year is a Leap year.
 
+p9.py (Loop)
+Program to Print Math table of a number
 
+p10.py
+Program to check if the alphabet is Vowel or Consonant
 
-
-
-
-
-	
