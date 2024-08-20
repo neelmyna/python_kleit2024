@@ -1,0 +1,180 @@
+SAMSUNG TRAINING ON PYTHON FOR KLEIT 2ND YEAR STUDENTS
+
+DAY1 MONDAY 19-08-2024
+
+NOTE: Always download ONLY installer file (.msi file) and then install it. (THIS ONE IS BETTER)
+OR
+Download ONLY .zip file and extract it.
+
+We created:
+	GitHub Account
+	HackerRank Account
+	CodeChef Account
+Those interested can also create:
+	* LinkedIn Account
+	* StackOverFlow (Start answering the questions once you are confident)
+	LeetCode
+	HackerEarth
+
+Steps
+1. Create a folder named "software" inside C drive
+2. Download Python from python.org
+	Installer file (.msi) is downloaded
+	Create a folder inside C:\software
+	Cut and paste it into C:\software\python folder
+	Now double click the installer and install
+	(To know if python is installed, search for idle Interpreter App in windows search. In the command prompt, run: 
+	$ python --version
+	$ pip --version
+	O/P:
+	pip 24.1.1 from C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\site-packages\pip (python 3.11)
+	
+	Thus, when we install Python, we get the Pre-defined Modules, the Python interpreter which included the compiler and runtime machine (PVM), idle App to run python scripts, python and pip CLI (command line interface)
+	
+	Create your learning folder
+		D:/aditya_learning/python
+	
+	Download notepad++
+	
+	Download MySQL
+	https://www.mysql.com/downloads/
+	Scroll down and click on: MySQL Community (GPL) Downloads »
+	CLick on: MySQL Installer for Windows
+	Click on: Windows (x86, 32-bit), MSI Installer 	8.0.39 	303.6M
+	
+	INSTALLATION PROCESS:
+	Choosing the setup File: (check box) Full -> Click Next
+	Installation: Click Execute -> Click Next
+	Product Configuration: Click Next
+	Type and Networking: Do not change the settings (remember the port number 3306) Click Next
+	Authentication Method: (No changes) Click Next
+	Accounts and Rolls: Add the Root Password as "root123" -> Click Next
+	Windows service: Click Next
+	Server File Permissions: Click Next
+	Apply Configurations: Click Execute -> Click Finish
+	Product Configuration: Click Next
+	MySQL Router Config: Click Finish
+	Product Configuration: Click Next
+	Connect to Server: Enter password and Click Check (Connection succeeded must appear)
+	Apply Configurations: Click Execute -> Click Finish
+	Product Configuration: Click Next
+	Installation Complete: 
+----------------------------------------------------
+DAY2 TUESDAY 20-08-2024
+
+Steps to create github Repo:
+	Login to your github account
+	Click on + (right top corner)
+	Click Create New Repository
+	Give name to your new Repo: "python_aug2024"
+	Make it public Repo (by default it will be public)
+	Click the Checkbox "add readme file"
+	Click Create button
+	
+Steps to create PAT (Personal Access Token)
+	Click on your profile Photo (Right Top corner) -> next page
+	Click Sttings (Down in the list) -> next page
+	Sroll down and Click Developer Settings -> next page
+	Click PAT -> Click PAT classic -> next page
+	Click PAT -> Select Classic PAT
+	In the list, slect -> Repo, Write Packages and delete packages and Click Create button
+	Copy the PAT and save it in some Safe place
+	
+Steps to Sync our Git Repo to our local machine:
+	Copy the URL of your git Repo
+	Add '@' symbol before 'github' in the URL
+	Add the PAT before the '@' in the modified URL
+	Now run the Command: git clone <URL with PAT>
+	You should get the Repo folder in your system/laptop
+	Copy the necessary files and folders into your Repo folder
+------------------------------------------------------
+p1.py
+# Assign a number into a variable and check if the number is Even.
+'''
+Multi Line Comment
+'''
+my_number = 452
+
+if my_number % 2 == 0:
+    print(my_number, ' is an Even number')
+----------------------------
+p2.py
+# Read a number from the user and check if it is an Even number or not.
+
+# To read data from the console, we can use input(). However the input() always reads only a string as usual with all other languages.
+
+# We must 1st cast(convert) the string into a number(specifically an int)
+# The input(), not just reads a string but also can print a string
+my_number = int(input('Enter a number to check if it is Even or not: '))
+
+# To check the data-type of a variable use type()
+print(type(my_number))
+
+if my_number % 2 == 0:
+    print(my_number, 'is an Even number')
+else:
+    print(f'{my_number} is not an Even number')
+
+-------------------------------------------------
+p3.py
+'''
+Accept a number as input, say X and define a logic to get the output say Y. The Input can be only 0 or 1 and the output must be 1 if input is 0 and viceversa.
+Do not use Boolean Algebra.
+'''
+
+X = int(input('Enter the input number(0 or 1 Only): '))
+
+# Check if the i/p is valid
+
+Y = 1 - X
+print(f'Input number = {X}, Output Number = {Y}')
+
+'''
+# if X == 0 or X == 1:
+if X >= 0 and X <= 1:
+    # solution
+    pass
+else:
+    # print invalid input
+    pass
+'''
+-----------------------------------------
+p4.py
+
+# Program to Accept 3 distinct numbers and find smallest among them.
+
+input_num1 = int(input('Enter  first number: '))
+input_num2 = int(input('Enter second number: '))
+input_num3 = int(input('Enter  third number: '))
+
+# check if valid input
+
+if input_num1 < input_num2 and input_num1 < input_num3:
+    print(f'{input_num1} is smallest')
+elif input_num2 < input_num3:
+    print(f'{input_num2} is smallest')
+else:
+    print(f'{input_num3} is smallest')
+---------------------------------------
+In the case of AND, put that condition 1st which has highest probability to fail.
+c1 and c2 and c3 ...... and c10
+	do this job-1
+In the case of OR, put that condition 1st which has highest probability to succeed.
+c1 or c2 or c3 or c4
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	

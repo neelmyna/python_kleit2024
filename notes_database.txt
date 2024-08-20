@@ -1,0 +1,27 @@
+DATABASE NOTES:
+
+connection URL:
+http://localhost:3306
+
+Here 3306 is Port Number
+localhost means we are connecting to locally available instance of mysql.
+
+root is the username of our mysql instance
+
+MYSQL COMMANDS:
+
+mysql> show databases;
+// Lists the available/created databases
+
+mysql> select database();
+// Lists the current database under use
+O/P: NULL  (No DB is selected, i.e., we are not inside any DB)
+
+mysql> use sys;
+// To switch a specific DB
+
+mysql> create database nithin_db;
+// Creates a new database with name "nithin_db"
+
+mysql> show tables;
+// 
