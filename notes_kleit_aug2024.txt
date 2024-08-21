@@ -198,4 +198,106 @@ Program to Print Math table of a number
 
 p10.py
 Program to check if the alphabet is Vowel or Consonant
+-------------------------------------
+day3
+loops, array and string problem solving and pdb
+day4
+python built in DS and pdb
+Hacker Rank problem solving
+day5
+mysql DB
+day6
+DB connectivity and project using python
+day7
+assessment and left overs
+day8
+numpy
+day9
+numpy and pandas
+day10
+numpy, pandas and matplotlib
+day11
+problem solving on numpy, pandas and matplotlib
+day12
+mini project and final assessment
+-------------------------------------------------
+DAY3 WEDNESDAY 21-08-2024
 
+range()
+
+range(number) with 1 Arg
+Here the default start value is 0 and goes upto number-1 with a default increment of 1
+range(5) 0 .... 4
+[0, 5)
+
+range(startNumber, endNumber) with 2 Args
+Here the start value is startNumber and goes upto endNumber-1 with a default increment of 1
+range(10, 20)
+Starts from 10 and goes upto 19
+[10, 20)
+
+range(startNumber, endNumber, increment) with 3 Args
+Here the start value is startNumber and goes upto endNumber-1 with the given increment
+range(10, 40, 3)
+10, 13, 16, 19, 22, 25, 28, 31, 34, 37
+
+range(40, 25, -2)
+Starts from 40 goes upto 11 with increment of -2 or decrement of 2.
+40, 38, 36, 34, 32, 30, 28, 26
+
+[10, 20]
+Closed Interval where end points are included
+num >= 10 and num <= 20
+
+(30, 50)
+Open Interval, where end points are excluded
+num > 30 and num < 50
+
+[25, 50)
+Right Open
+num >= 25 and num < 50
+
+# p9 Program to Print Math table of a number
+
+input_num = int(input('Enter a number to print its Math table: '))
+
+for i in range(1, 16):
+    #print(input_num, '*', i, '=', input_num*i)
+    print('%02d * %02d = %03d'%(input_num, i, input_num*i))
+-----------------------------------------------------
+p11.py
+Program to Find Sum of digits of a number
+p12
+Program to Find count of digits of a number
+p13
+Program to find biggest (smallest) digit in a number
+p14
+Program to find 2nd smallest digit in a number
+p15
+Program to find Sum of even(odd) digits in a number
+p16
+Program to reverse a number
+p17
+Program to Find Odd(Even) placed digits in a number
+p18
+Program to Find Odd placed Even digits in a number
+p19
+Program to print the Right angled Triangle of N lines
+*
+**
+***
+****
+*****
+p20
+Program to print the Equi Lateral Triangle of N lines
+    *
+   ***
+  *****
+ *******
+*********
+p21
+Program to print a Hollow Square of N lines
+p22
+Program tp print X shape of N lines
+p23
+Program to Print X shape inside Hollow Square
