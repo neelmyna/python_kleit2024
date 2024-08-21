@@ -301,3 +301,202 @@ p22
 Program tp print X shape of N lines
 p23
 Program to Print X shape inside Hollow Square
+p24
+Check if a number is Prime
+p25
+Assume 1 and 2 are 1st 2 terms of the series and print the 1st N term of Fibo series (HemaChandra numbers)
+p26*
+Find the Nth Prime number
+p27*
+Find Nth Fibo term (assume 1 and 2 as 1st 2 terms)
+p28*
+Print Prime numbers between M and N (M < N)
+p29
+Find sum of the series: n + n(2) + n(3) + ..... m terms
+p30
+Find sum of the series: 1 - n + n2 - n3 .... m terms
+p31*
+Find sum of the sries: n - n2/3 + n4/5 - n8/7 .... m terms (1<m<10)
+p32*
+Find Factorial of a number using rescursive function
+p33
+Find Nth term of the series:
+1 2 2 3 3 5 5 7 8 11 13 13
+------------------------------------------------------
+HOW TO SOLVE A PROBLEM:
+
+1. Understand the problem statement. Note down the I/P and the required information. Isolate and discard the unwanted information and data if any. Recognise what should be the O/P
+
+Outcome:
+We get to know the exact I/P and the O/P and the direct question.
+
+2. Find the solution using Trial and Error method or if you know any Mathematical formula to solve the problem or using any specific method. Progragramitical solution is not required at this step.
+
+Outcome: We know a possible solution for the giveen problem.
+
+3. Write the Algorithm for the solution we found
+An Algorithm is step by step procedure to solve a problem
+Every step must be atomic (must solve only one problem at at time)
+Every step must be Finite and unambigious.
+Outcome: Exact solution with a particular efficiency is built.
+
+4. Write the pseudocode (Fake code)
+Advantage: No need of facing the burden of syntax.
+Outcome: A solution that looks almost like a code is ready.
+
+5. Code it (Translate the pseudocode in a particular language syntax)
+Outcome: The Code is ready
+
+6. Debug the solution, Optimize the solution and apply the code for necessary constraints.
+-----------------------------------------
+important Math functions:
+
+floor()
+Simply truncate the decimal part and the integer you get is the result
+floor(7.0) is 7
+floor(7.0999) is 7
+
+ciel()
+If the decimal part is anything other than 0, then jump to the next descrete/integer number
+ciel(7.0) is 7
+ciel(7.001) is 8
+ciel(7.999) is 8
+
+round()
+round(7.0) is 7
+round(7.4999) is 7
+round(7.5) is 8
+round(7.9999) is 8
+----------------------------------------
+p7
+1.  Done
+
+2. Solution
+40   6.4   6   36
+25   5.0   5   25
+50   7.1   7   49
+
+3. 
+Algorithm
+Read input_number
+root_num = root(input_number)
+root_num = floor(root_num)
+product = root_num * root_num
+if product == input_number then
+    print input_number is P S
+else
+    print input_number is not a P S
+
+'''
+Read input_number
+root_num = root(input_number)
+root_num = floor(root_num)
+product = root_num * root_num
+if product == input_number then
+    print input_number is P S
+else
+    print input_number is not a P S
+'''
+import math
+
+input_num = int(input('Enter a number to check if it is Perfect Square: '))
+root_number = input_num ** 0.5
+# root_number = math.sqrt(input_number)
+root_number = math.floor(root_number) # int(root_number)
+if root_number * root_number == input_num:
+    print(f'{input_num} is a Perfect Square')
+else:
+    print(f'{input_num} is not a Perfect Square')
+--------------------------------------------------
+OPERATORS:
+Arithmetic Operators:
++ - * / % ** //
+
+I/P are numbers
+O/P is number
+All are binary operators (takes 2 operands)
+Infix notation is used (place the operator inbetween operands)
+5 + (-8)
+5 + 7.88
+When performing any Arithmetic operation, the DT of both the operands must be same.
+All the operators except ** has Left to Right Associtivity.
+x + y
+Here, the value of x is feteched 1st and then y
+x + y - z
+Here, x+y is performed 1st
+However, if the precedence of operator is higher then, it is performed 1st even if the operation comes later in the expression.
+x - y % z
+Here, y % z is performed 1st, because % has higher precedence than minus
+----------------------------------------
+RELATIONAL OPERATORS: > < >= <= == !=
+I/P are numbers
+O/P is Boolean
+Infix notation
+Left to right associtivity
+
+------------------------------------------
+LOGICAL OPERATORS: and or not (C/C++: & && | || !)
+I/P are Boolean value
+O/P is Boolean
+Infix notation (binary operators)
+prefix notation (unary operator)
+Example: not variable
+-----------------------------------
+southern_capital_cities = {chennai, tiruvanantapuram, panjim, bengaluru, hyderabad}
+
+cities is correct
+capital_cities is more correct
+southern_capital_cities is perfect (Most specialized)
+-------------------------------------------------
+p14
+
+N=67329
+s2=9
+s1=9
+loop_itr=1
+	d=9
+	N=6732
+loop_itr=2
+	d=2
+	s1=2
+	N=673
+loop_itr=3
+	d=3
+	N=67
+	s2=3
+loop_itr=4
+	d=7
+	N=6
+loop_itr=5
+	d=6
+	N=0
+# p14 Find 2nd smallest digit in a number
+'''
+Read N
+small_digit = 9
+smallest_digit = 9
+Until N has digits
+    fetch last digit into D
+    remove the unit place digit from N
+    if D < smallest_digit then:
+        smallest_digit = D
+    if D > smallest_digit and D < small_digit:
+        small_digit = D
+print small_digit as result 
+
+'''
+input_number = int(input('Enter a number to find 2nd smallest digit in it: '))
+
+temp_number = input_number
+small_digit = 9
+smallest_digit = 9
+while input_number != 0:
+    digit = input_number % 10 # fetch last digit
+    input_number = input_number // 10 #remove last digit
+    if smallest_digit > digit:
+        small_digit = smallest_digit
+        smallest_digit = digit
+    elif digit < small_digit:
+        small_digit = digit
+print(f'2nd smallest digit in {temp_number} is {small_digit}')
+-----------------------------------------------------
