@@ -500,3 +500,147 @@ while input_number != 0:
         small_digit = digit
 print(f'2nd smallest digit in {temp_number} is {small_digit}')
 -----------------------------------------------------
+DAY4 THURSDAY 22-08-2024
+
+Built In Functions in Python
+len()
+min()
+max()
+sorted()
+type()
+sum()
+
+string class in Python
+my_name = 'chandramoulehwar'
+
+print(my_name.upper()) #prints the string in uppercase. The original string is not modified(because strings are immutable)
+print(my_name.capitalize())#Only 1st char is upper
+print(len(my_name))
+print(my_name.endswith('war'))
+print(my_name.endswith('kar'))
+print(my_name.startswith('Chandra'))
+print(my_name.count('a'))
+print(my_name.count('r', 10))
+print(my_name.count('a', 3, 15))
+print(my_name.find('puram'))
+-----------------------------------------
+What is pass in Python?
+To skip the body of a block (if block, loop block, function block)
+
+for i in range(10, 20):
+	pass
+	
+What is None in Python ?
+None is similar to null of Java where it represents no value or emptyness.
+
+For example, the print() function in Python returns nothing, which is technically represented as None
+
+for i in range(10):
+	print(i, end=' ')
+	i = i+1 # i++
+
+O/P: 0 2 4 6 8  (WRONG)
+O/P: 0 1 2 3 4 5 6 7 8 9 (CORRECT)
+
+Why ++ and -- are not available in Python?
+Why there is no implicit cast in Python?
+Why there is no Function Overloading in Python?
+-------------------------------------------------
+my_name = 'tiruvanantapuram'
+print(my_name.find('puram'))
+print(my_name.find('ananta'))
+print(my_name.find('trivandrum'))
+print(my_name.find('ananta', 5))
+print(my_name.find('ananta', 5, 10))
+print(my_name.find('ananta', 5, 11))
+print(my_name.index('d'))
+print(my_name.find('a', 6))
+-------------------------------------------
+In Python, though the string objects are immutable, we can index them, i.e., strings are ordered.
+
+my_str = 'siddharoodha'
+
+print(my_str[0])
+print(my_str[-1])
+print(my_str[2])
+print(my_str[-2])
+print(my_str[-12])
+print(my_str[11])
+print(my_str[-13])
+-----------------------------------------
+String Slicing:
+my_str = 'siddharoodha'
+
+print(my_str[:])
+print(my_str[::])
+print(my_str[1:6])
+print(my_str[2:9:2])
+print(my_str[1:16])
+print(my_str[:9:-1])
+print(my_str[9:5:-1])
+print(my_str[::-1])
+------------------------------
+my_str = 'siddharoodha'
+print(my_str.index('a'))
+print(my_str.find('a'))
+------------------------------
+my_function(val1, val2) # We must send only 2 values to this function
+
+num1 = 40
+num2 = 60
+print('Before Swapping, Num1=' + str(num1) + ', Num2=' + str(num2))
+num1 , num2 = num2, num1
+print('After Swapping, Num1=' + str(num1) + ', Num2=' + str(num2))
+print(num3)  NameError , because num3 is not defined
+-------------------------------------------------------
+Functions in Python:
+def my_function():
+    print('From my function')
+
+my_function()
+----------------
+def my_function(num1, num2):
+    return num1 + num2
+
+sum = my_function(10, 20)
+print(f'Sum = {sum}')
+---------------------------
+Default Args:
+
+def my_function(num1 = 70, num2 = 90):
+    return num1 + num2
+
+sum1 = my_function(10, 20)
+print(f'Sum = {sum1}')
+
+sum2 = my_function(25)
+print(f'Sum = {sum2}')
+
+sum3 = my_function()
+print(f'Sum = {sum3}')
+------------------------------
+Named Arguments:
+def my_function(num1 = 70, num2 = 90):
+    print(f'Num1={num1}, Num2={num2}')
+    return num1 + num2
+
+sum1 = my_function(num2 = 10, num1 = 20)
+print(f'Sum = {sum1}')
+----------------------------
+Var Arg Function
+def my_function(*numbers):
+    print(numbers)
+    print(sum(numbers), '\n')
+
+my_function(7)
+my_function(2, 3, 5, 7)
+my_function(11, 19)
+my_function()
+-------------------------------------
+p26*
+Find the Nth Prime number
+p27*
+Find Nth Fibo term (assume 1 and 2 as 1st 2 terms)
+
+
+

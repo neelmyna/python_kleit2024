@@ -1,9 +1,16 @@
-number_of_lines = int(input('Enter number of lines to draw the star shape: '))
+list1 = []
+list2 = list()
 
-for i in range(1, number_of_lines+1):
-    for j in range(1, number_of_lines+1):
-        if j == 1 or j == number_of_lines or i == j or j == number_of_lines-i+1:
-            print('* ', end='')
-        else:
-            print('  ', end='')
-    print()
+l1.append(10)
+l1.insert(25, 2)
+l1.pop()
+l1.remove(2)
+del l1[2]
+del l2
+l2.clear()
+
+
+l2 = [23, 19, 3, 7, 17, 11]
+sorted(l2)
+
+l2.sort()
