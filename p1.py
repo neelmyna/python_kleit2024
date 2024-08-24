@@ -1,16 +1,34 @@
-list1 = []
-list2 = list()
+import pymysql
 
-l1.append(10)
-l1.insert(25, 2)
-l1.pop()
-l1.remove(2)
-del l1[2]
-del l2
-l2.clear()
+def connectToDb():
+    connectionObj = pymysql.Connect(
+        host='localhost', port=3306, user='root', password='Root123', db='nithin_db', charset='utf8'
+    )
+    print('DB connected')
+    return connectionObj    
 
+def disconnectDb(connectionObj):
+    connectionObj.close()
+    print('DB disconnected')
 
-l2 = [23, 19, 3, 7, 17, 11]
-sorted(l2)
+def updateRow():
+    query = 'update students set name = %s where id = %s'
+    name = input('Enter name to be updated: ')
+    id = input('Enter Id of the student to update record: ')
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        count = my_cursor.execute(query, (name, id) )
+        if count == 0:
+            print(f'Student with id={id} not found') 
+        else:
+            print('Row updated')
+        conn.commit()
+        my_cursor.close()
+    except Exception as e:
+        print('Table deletion failed')
+        print(e)
+    else:
+        disconnectDb(conn)
 
-l2.sort()
+updateRow()

@@ -641,6 +641,216 @@ p26*
 Find the Nth Prime number
 p27*
 Find Nth Fibo term (assume 1 and 2 as 1st 2 terms)
+-----------------------------------------
+DAY6 SATURDAY 24-08-2024
 
+p1.py
+Connecting and disconnecting DB
 
+import pymysql
 
+def connectToDb():
+    connectionObj = pymysql.Connect(
+        host='localhost', port=3306, user='root', password='Root123', db='nithin_db', charset='utf8'
+    )
+    print('DB connected')
+    return connectionObj    
+
+def disconnectDb(connectionObj):
+    connectionObj.close()
+    print('DB disconnected')
+
+def my_app():
+    try:
+        connection = connectToDb()
+    except:
+        print('DB connection failed')
+    else:
+        disconnectDb(connection)
+
+my_app()
+---------------------------------------------------
+p2.py
+Creating a table in the DB via Python
+
+import pymysql
+
+def connectToDb():
+    connectionObj = pymysql.Connect(
+        host='localhost', port=3306, user='root', password='Root123', db='nithin_db', charset='utf8'
+    )
+    print('DB connected')
+    return connectionObj    
+
+def disconnectDb(connectionObj):
+    connectionObj.close()
+    print('DB disconnected')
+
+def createTable():
+    query = 'create table IF NOT EXISTS students(id int primary key auto_increment, name varchar(32) not null);'
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        my_cursor.execute(query)
+        my_cursor.close()
+    except:
+        print('Table creation failed')
+    else:
+        disconnectDb(conn)
+
+createTable()
+----------------------------
+def deleteTable():
+    query = 'drop table if exists %s ;'
+    table_name = input('Enter table to be deleted: ')
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        my_cursor.execute(query, table_name)
+        print(f'{table_name} table deleted')
+		conn.commit()
+        my_cursor.close()
+    except Exception as e:
+        print('Table deletion failed')
+        print(e)
+    else:
+        disconnectDb(conn)
+
+deleteTable()
+----------------------------------
+def insertRow():
+    query = 'insert into students(name) values(%s)';
+    name = input('Enter student name: ')
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        my_cursor.execute(query, name)
+        conn.commit()
+        print('Row inserted')
+        my_cursor.close()
+        disconnectDb(conn)
+    except:
+        print('Row insertion failed')
+
+insertRow()
+-------------------------------------
+5 MOST IMPORTANT OPERATIONS THAT WE PERFORM ON DB ARE CALLED AS "CRUD operations".
+
+The 5 CRUD operations are:
+insert one row
+delete one row
+update one row
+select/serach one row
+list all rows
+
+C means create (insert one row)			post
+R means read/retrieve (search one row)	get
+U update(update one row)				put
+D delete (deleted one row)				delete
+
+RESTFul API EndPoints (post, get, put, delete)
+
+insert row -> post -> create()
+list rows -> get -> find()
+search one row -> get ->findById()
+update row -> put -> findByIdAndUpdate()
+delete row -> delete -> findByIdAndDelete()
+
+insert into students(name, branch, semester) values('mohit', 'cse', 5)
+
+select * from students;
+
+select * from students where id = 5;
+
+http://localhost:3306/
+Home page
+
+API EndPoint: get
+http://localhost:3306/
+Read all rows
+
+API EndPoint: put
+http://localhost:3306/:id
+update one row
+NEED THE OBJECT TO BE PASSED
+
+API EndPoint: get
+http://localhost:3306/:id
+search one row
+
+API EndPoint: delete
+http://localhost:3306/:id
+delete one row
+
+API EndPoint: post
+http://localhost:3306/
+insert one row
+NEED THE OBJECT TO BE PASSED
+---------------------------------------
+def searchRow():
+    query = 'select * from students where id = %s'
+    student_id = input('Enter Id of the student to be searched: ')
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        count = my_cursor.execute(query, student_id)
+        if count == 0:
+            print(f'Student with id={student_id} not found') 
+        else:
+            student_row = my_cursor.fetchone()
+            print('Student details = ', str(student_row))
+        my_cursor.close()
+    except Exception as e:
+        print('Table deletion failed')
+        print(e)
+    else:
+        disconnectDb(conn)
+
+searchRow()
+-----------------------------
+def readAllRows():
+    query = 'select * from students;'
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        count = my_cursor.execute(query)
+        if count == 0:
+            print(f'No Student records found') 
+        else:
+            student_rows = my_cursor.fetchall()
+            print('%-3s %s'%('ID', 'NAME'))
+            print('-----------------')
+            for student in student_rows:
+                #print(str(student))
+                print('%-3d %s'%(student[0], student[1]))
+            print('-----------------')
+        my_cursor.close()
+    except Exception as e:
+        print('Read All Rows failed')
+        print(e)
+    else:
+        disconnectDb(conn)
+
+readAllRows()
+-------------------------------------
+def updateRow():
+    query = 'update students set name = %s where id = %s'
+    name = input('Enter name to be updated: ')
+    id = input('Enter Id of the student to update record: ')
+    try:
+        conn = connectToDb()
+        my_cursor = conn.cursor()
+        count = my_cursor.execute(query, (name, id) )
+        if count == 0:
+            print(f'Student with id={id} not found') 
+        else:
+            print('Row updated')
+        conn.commit()
+        my_cursor.close()
+    except Exception as e:
+        print('Table deletion failed')
+        print(e)
+    else:
+        disconnectDb(conn)
+
+updateRow()
