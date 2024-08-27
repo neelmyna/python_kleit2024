@@ -1,34 +1,21 @@
-import pymysql
+def linear_search(names, search_name):
+    for i in range(len(names)):
+        if names[i] == search_name:
+            return i
+    return -1
 
-def connectToDb():
-    connectionObj = pymysql.Connect(
-        host='localhost', port=3306, user='root', password='Root123', db='nithin_db', charset='utf8'
-    )
-    print('DB connected')
-    return connectionObj    
+n = int(input('Enter input size: '))
 
-def disconnectDb(connectionObj):
-    connectionObj.close()
-    print('DB disconnected')
+names = []
+print(f'Enter the {n} names')
+for i in range(n):
+    names.append(input())
 
-def updateRow():
-    query = 'update students set name = %s where id = %s'
-    name = input('Enter name to be updated: ')
-    id = input('Enter Id of the student to update record: ')
-    try:
-        conn = connectToDb()
-        my_cursor = conn.cursor()
-        count = my_cursor.execute(query, (name, id) )
-        if count == 0:
-            print(f'Student with id={id} not found') 
-        else:
-            print('Row updated')
-        conn.commit()
-        my_cursor.close()
-    except Exception as e:
-        print('Table deletion failed')
-        print(e)
-    else:
-        disconnectDb(conn)
+print('The input data is \n', names)
+search_name = input('Enter the search name: ')
 
-updateRow()
+index = linear_search(names, search_name)
+if index == -1:
+    print(f'{search_name} was not found in the list')
+else:
+    print(f'{search_name} was found at position {index+1}')

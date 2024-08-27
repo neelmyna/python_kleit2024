@@ -854,3 +854,269 @@ def updateRow():
         disconnectDb(conn)
 
 updateRow()
+-----------------------------------------------------
+MySQL is one of the RDBMS
+DB -> Tables -> Rows -> cell data
+MongoDB is Document based DB
+DB -> Collections -> documents -> key:pairs
+
+Level-2:
+gaming_club
+
+members
+id, name, wallet_balance, phone_number, adhaar_number, active
+
+games
+id, name, price_per_player, number_of_players, duration, description
+
+member_recharges
+id, amount, date, member_id
+
+transactions
+id, date, member_id, game_id, amount
+
+collections
+id, date, amount
+
+OPERATIONS:
+1. 
+--------------------------------------------------
+Template of each CRUD operation done via Python programming:
+
+Steps:
+1. Connect to DB (connection object)
+2. create cursor object
+3. Build the query string
+4. Read data from user
+5. execute the query
+	5a. Process the Result Set
+6. close the cursor object
+7. close the conn object
+---------------------------------------------------
+25%
+1/4 or .025
+
+50%  	0.5 
+
+100% 	1
+
+
+Take 5 questions
+-1.25
+0
+
+-0.75 + 2 = 1.25
+----------------------------------------------
+MCSR and MCMR
+More Correct Answer
+Negative marking
+Ways of answering
+----------------------------------------------
+Company Certifications 
+Internships
+Course + certification (nptel)
+------------------------------------------------
+PYTHON LIST:
+
+collection of data
+stored in contigious memory locations
+Unlike C/C++/Java/C# Arrays, Python list can have data of different types
+Lists are Ordered (We can do indexing)
+Lists are mutable
+Lists can have duplicate data
+Lists can be sliced
+Memory efficient because data can be deleted.
+Memory inefficient if lists are too big.
+Time inefficient DS for internal maintainance
+High time efficient for look-up.
+----------------------------------------------
+List methods:
+append() add element at rear
+insert() add element at specific index
+pop() 	 remove last element
+remove() removes the 1st occurance of matching element
+del list[index]
+del list
+clear()	 
+
+my_list = []
+list2 = [2, 5, 8, 9]
+list3 = list(list2)
+list4 = [4, 7, 3, 0]
+
+list2.extend(list4)
+print(list2)
+list2[:4] = my_list
+print(list2) # [4, 7, 3, 0]
+my_list = list2.copy() # [4, 7, 3, 0] is copied
+print(my_list)
+my_list[0] = 14
+print(list2)
+print(my_list)
+----------------------------------------------
+list1 = [2, 5, 9, 20, 3, 45, 11]
+list2 = [2, 5, 8, 9]
+list3 = list(list2)
+list4 = [4, 7, 3, 0, 1, 6]
+
+if list1 > list4:
+    print('list1 is big')
+else:
+    print('list4 is big')
+
+print(f'Max    = ', max(list1))
+print(f'Min    = ', min(list1))
+print(f'Length = ', len(list1))
+print(f'Sum    = ', sum(list1))
+print(f'Count of 2 = ', list1.count(2))
+list1.sort()
+print(f'Sorted list = ', list1)
+----------------------------------------------
+list2 = ['abc', 5, 'xyz', 10]
+print(list2)
+list2.sort() # Error
+print(list2)
+----------------------
+list2 = [(2, 5), {3, 4, 5}, {2:'a', 5:'b'}, 'abc', 5]
+print(list2)
+list2.sort() # Error
+print(list2)
+--------------------------
+List Comprehension
+
+list1 = [element for element in range(10, 30, 2)]
+print(list1)
+
+
+split() method
+
+The Split() splits the string into pieces upon the DELIMETER. The default delimeter is space.
+We can specify the delimeter.
+
+list2 = [element for element in input().split()]
+print(list2)
+-----------------
+list2 = [int(element) for element in input().split()]
+print(list2)
+-----------------
+list2 = [float(element) for element in input('Enter numbers seperated by @: ').split('@')]
+print(list2)
+---------------------
+list2 = [int(element) for element in input('Enter numbers seperated by @: ').split('@')]
+print(list2)
+
+I/P: 4@2.5@3
+ValueError for split() data
+--------------------------------------
+map function()
+
+def my_function(some_list):
+    some_list.remove(10) # removes 1st occurance of 10
+    some_list.insert(1, 25)
+    some_list.append(50)
+
+print('Enter space separated numbers')
+list1 = list(map(int, input().split()))
+print(list1)
+my_function(list1)
+print(list1)
+-------------------------------
+check_ps(NUMBER)
+	root = int(NUMBER ** 0.5)
+	if root * root == NUMBER then
+		return true
+	return false
+
+count_perfect_squares(NUMBERS)
+	COUNT = 0
+	for each NUMBER in NUMBERS do:
+		if check_ps(NUMBER)
+			COUNT = 0
+	return COUNT
+
+DRIVER/USER CODE
+	Read N
+	create empty list say, NUMBERS
+	count_of_ps = count_perfect_squares(NUMBERS)
+	print count_of_ps as O/P
+------------------------------------------------
+find_sum_of_odd_elements(NUMBERS)
+	SUM = 0
+	for i from 0 to size_of(NUMBERS)-1 do
+		if i % 2 == 0 then
+			SUM += NUMBERS[i]
+	return SUM
+
+Driver Code:
+	Read N
+	Read N element of the list NUMBERS
+	SUM = find_sum_of_odd_elements(NUMBERS)
+	if SUM < 0:
+		print: server-1 deallocated math.abs(SUM) units of memory
+	else:
+		print: server-1 allocated SUM units of memory
+------------------------------------------
+DAY7 TUESDAY 27-08-2024
+
+ALGORITHMS:
+Linear Search
+Binary Search
+Bubble Sort
+Insertion Sort
+Quick Sort
+
+LINEAR SEARCH:
+-> In a list of elements, we may have search for a specific element.
+
+-> If we have to find the frequency of an element in a list, then note that, we must always access all elements of the list.
+
+-> In the problems such as, finding smallest or biggest elements, counting the elements, finding sum of elements, in all these examples, we must always access all elements of the list.
+
+-> However, in Sequential (Linear) search, we just check the occurance/presence of the element in the list.
+
+We can start the search from any end.
+Possibilities:
+	-> If the element is found in the very 1st position, then we say that the element is found after 1 unit of time (one look up).
+	This is called as Big-Oh(1) represented as O(1)
+	This is the Best Case Efficiency (BCE)
+	-> Worst case scenario is when the search element is:
+		1. not found in the list
+		2. found at last position in the list
+	In both these scenarios, we have N searchs (where N is the number of elements in the list)
+	Thus, the the wrost case efficiency (WCE) is O(n)
+	-> The average case scenario is when the search element is found at mid of the list. In such a case, the ACE is O(n)
+	
+Big-Oh Notation:
+	It is used usually to find WCE
+	It gives us the efficiency in terms of N (size of the I/P)
+	It considers N to be very big
+	It gives not the exact efficiency, but/rather its purpose is to tell us in what order the algorithm is. Example, O(1), n, Log(n), n-square, Factorial(n), sqrt(n), 2-power-n
+Linear Search Efficiencies:
+BCE O(1)
+ACE O(n)
+WCE O(n)
+	
+def linear_search(names, search_name):
+    for i in range(len(names)):
+        if names[i] == search_name:
+            return i
+    return -1
+
+n = int(input('Enter input size: '))
+
+names = []
+print(f'Enter the {n} names')
+for i in range(n):
+    names.append(input())
+
+print('The input data is \n', names)
+search_name = input('Enter the search name: ')
+
+index = linear_search(names, search_name)
+if index == -1:
+    print(f'{search_name} was not found in the list')
+else:
+    print(f'{search_name} was found at position {index+1}')
+-----------------------------------------
+
+	
