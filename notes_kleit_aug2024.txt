@@ -1203,3 +1203,279 @@ def injsertion_sort(array)
 			array[j+1] = array[j]
 			j = j-1
 		array[j+1] = element
+----------------------------------------------------------------
+def partition_array(array):
+	pivot = array[-1]
+	j = 0
+	for i in range(len(array)-1):
+		if array[i] < pivot:
+			array[j], array[i] = array[i], array[j]
+			j += 1
+	array[j], array[-1] = array[-1], array[j]
+
+array = [12, 4, 19, 23, 8, 7, 20, 15, 5, 13]
+print(array)
+partition_array(array)
+print(array)
+--------------------------------
+Quick Sort Program:
+def partition_array(array, low, high):
+	pivot = array[high]
+	j = low
+	for i in range(low, high):
+		if array[i] < pivot:
+			array[j], array[i] = array[i], array[j]
+			j += 1
+	array[j], array[high] = array[high], array[j]
+	return j
+
+def quick_sort(array, low, high):
+	if low < high:
+		pivot_index = partition_array(array, low, high)
+		quick_sort(array, low, pivot_index-1)
+		quick_sort(array, pivot_index+1, high)
+
+array = [12, 4, 19, 23, 8, 7, 20, 15, 5, 13]
+n= len(array)
+print('Input Array = ', array)
+quick_sort(array, 0, n-1)
+print('Sorted Array = ', array)
+----------------------------------------
+def check_arrangement(input_str):
+    open_count = close_count = 0
+    arrangement = True # Assume the proper arrangement
+    for char in input_str:
+        if char == '(':
+            open_count += 1
+        else:
+            close_count += 1
+        if close_count > open_count:
+            arrangement = False
+            break
+    if arrangement and open_count == close_count:
+        print('Number of pairs = ', open_count)
+    else:
+        print('Improper Arrangement')
+------------------------------------------
+DAY 11 FRIDAY 30-08-2024
+
+import numpy as np
+
+array1 = np.zeros((1, 4))
+print(array1)
+
+print(type(array1))
+for row in array1:
+    print(type(row))
+    for element in row:
+        print(element, type(element))
+-------------------------------
+import numpy as np
+
+array1 = np.zeros((3, 3))
+print(array1)
+print()
+i = 1
+for row in array1:
+    print(f'Row-{i}:', type(row))
+    for element in row:
+        print(element, end = '  ')
+    i += 1
+    print()
+-----------------------------
+import numpy as np
+
+arr1 = np.zeros((3, 5))
+print(arr1)
+
+print(arr1[2][0]) # 3rd row 1st element
+print(type(arr1[2][0])) # numpy.ndarray
+----------------------------------
+import numpy as np
+array2 = np.full((1, 5), 15) # Creates a List with a single List. Thus, array2 here, though has single List, it is 2D list.
+print(array2)
+
+print(array2[0]) # Prints the 1st list in the 2D list array2
+print(array2[0][1]) # Prints the 2nd element in the 1st list of array2
+#print(array2[1][0]) # Error. There is no 2nd list in array2
+-----------------------
+import numpy as np
+
+matrix1 = np.array([[3, 4], [4, 7]])
+matrix2 = np.array([[5, 8], [9, 6]])
+
+print('Matrix-1 is \n', matrix1)
+print('Matrix-2 is \n', matrix2)
+
+product = np.dot(matrix1, matrix2)
+print('Product Matrix is \n', product)
+------------------------------------
+import numpy as np
+
+array1 = np.array([3, 4, 4, 7])
+array2 = np.array([5, 8, 9, 6])
+product = array1 * array2;
+# Element wise multiplication
+print(type(array1))
+print('Array1 = ', array1)
+print('Array2 = ', array2)
+print('Product Array = ', product)
+-------------------------------
+import numpy as np
+
+array1 = np.array([3, 4, 4, 7])
+array2 = np.array([5, 8, 9, 6])
+sumArray = array1 + array2;
+# Element wise multiplication
+print(type(array1))
+print('Array1 = ', array1)
+print('Array2 = ', array2)
+print('Sum Array = ', sumArray)
+----------------------------
+import numpy as np
+
+array1 = np.array([2, 3, 14, 24, 7, 11, 19 , 17])
+print('Array1 = \n', array1)
+
+array2 = array1.reshape(2, 3)
+print('Reshaped Array = \n', array2)
+
+Note: The reshape() creates ValueError if improper number of elements are provided.
+--------------------------------------
+import numpy as np
+
+array1 = np.array([17, 11, 13, 7, 2, 5, 3])
+
+mean_value = np.mean(array1)
+median_value = np.median(array1)
+std_deviation = np.std(array1)
+
+print('Mean              = ', mean_value)
+print('Median            = ', median_value)
+print('Standard Deviation= ', std_deviation)
+---------------------------------------------
+import numpy as np
+
+array1 = np.arange(2, 12, 0.2)
+print('Array1 = \n', array1)
+
+array2 = np.zeros((2, 4))
+print('Array2 = \n', array2)
+
+array3 = np.ones((2, 4))
+print('Array3 = \n', array3)
+
+array4 = np.full((1, 5), 15)
+print('Array4 = \n', array4)
+----------------------------------
+import numpy as np
+
+array1 = np.array([2, 12, 3, 15, 25, 45, 30, 33])
+print('Array1 = \n', array1)
+
+roots = np.sqrt(array1)
+print('Roots = \n', roots)
+
+exponentials = np.exp(array1)
+print('Exponentials = \n', exponentials)
+
+print('Element at index 3 = ', array1[3])
+
+array2 = array1[1:5]
+print('Sliced Array = \n', array2)
+---------------------------------------
+import numpy as np
+
+vector = np.arange(5)
+print('Vector:', vector)
+print('Vector shape: \n', vector.shape)
+
+matrix = np.ones([3, 2])
+print('Matrix: \n', matrix)
+print('Matrix shape: \n', matrix.shape)
+
+tensor = np.zeros([2, 3, 3])
+print('Tensor: \n', tensor)
+print('Tensor shape: \n', tensor.shape)
+
+print(tensor[0][1][1])
+#Prints the 1st Matrix's 2nd Row, 2nd element
+----------------------------------------
+import numpy as np
+
+arr = np.arange(1, 10)
+print(arr, '\n')
+
+# Reshape to 3x3 matrix
+arr = arr.reshape(3, 3)
+print(arr, '\n')
+
+# Reshape back to the original size
+arr = arr.reshape(9)
+print(arr)
+------------------------------------------
+import numpy as np
+
+arr1 = np.arange(12)
+
+arr2 = arr1.reshape(2, 6)
+arr3 = arr1.reshape(6, 2)
+arr4 = arr1.reshape(3, 4)
+arr5 = arr1.reshape(12, 1)
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+------------------------
+# Numpy can try to infer one of the dimensions if you use -1. You will still need to have precisely the correct number of digits for the inference to work.
+
+import numpy as np
+
+arr = np.arange(1, 10).reshape(3, -1)
+print(arr)
+
+array1 = np.array([2, 5, 7])
+# The Array is broadcasted to each/every row of the Matrix
+matrix1 = np.array([[4, 6, 8], [12, 16, 20]])
+result = matrix1 + array1
+
+print('Result = \n', result)
+----------------------------------
+import numpy as np
+
+arr1 = np.arange(1, 10)
+arr2 = np.arange(2, 25, 2)
+
+arr3 = arr1.reshape(3, -1)
+arr4 = arr2.reshape(4, -1)
+arr5 = arr2.reshape(2, -1)
+arr6 = arr2.reshape(3, -1)
+arr7 = arr2.reshape(-1, 4) # Numpy predicts and fixes No. of rows
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+print('Arr6:\n', arr6)
+print('Arr7:\n', arr7)
+------------------------------
+import numpy as np
+
+data1 = np.array([1, 2, 3, 4, 5, 6])
+data2 = np.array([0, 2, 3, 4, 7, 8])
+
+data = np.stack((data1, data2), axis=0)
+
+print('Data = \n', data)
+
+correlation_matrix = np.corrcoef(data)
+print('Correlation Matrix = \n', correlation_matrix)
+-------------------------------------------------
+AVL Tree Tutorial:
+
+https://www.youtube.com/watch?v=FNeL18KsWPc&t=1137s
+------------------------------------------------------
+

@@ -1,15 +1,11 @@
-def check_arrangement(input_str):
-    open_count = close_count = 0
-    arrangement = True # Assume the proper arrangement
-    for char in input_str:
-        if char == '(':
-            open_count += 1
-        else:
-            close_count += 1
-        if close_count > open_count:
-            arrangement = False
-            break
-    if arrangement and open_count == close_count:
-        print('Number of pairs = ', open_count)
-    else:
-        print('Improper Arrangement')
+import numpy as np
+
+data1 = np.array([[1, 2, 3, 4], [11, 22, 44, 33], [10, 30, 40, 20]])
+print('Data1 = \n', data1)
+
+data2 = data1[: 4]
+data3 = data1[3:]
+
+print('Data2 = \n', data2)
+print('Data3 = \n', data3)
+
