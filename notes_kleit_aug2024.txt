@@ -1478,4 +1478,246 @@ AVL Tree Tutorial:
 
 https://www.youtube.com/watch?v=FNeL18KsWPc&t=1137s
 ------------------------------------------------------
+import pandas as pd
 
+Reads a CSV file into a DataFrame.
+df = pd.read_csv('data.csv')
+---------------
+Returns the first n rows of the DataFrame.
+print(df.head(5))
+---------------
+Returns the last n rows of the DataFrame.
+print(df.tail(5))
+---------------
+Provides a concise summary of the DataFrame.
+df.info()
+---------------
+Generates descriptive statistics of the DataFrame.
+print(df.describe())
+---------------
+Removes missing values.
+df_clean = df.dropna()
+---------------
+Fills missing values with a specified value.
+df_filled = df.fillna(0)
+---------------
+Groups data by a specific column(s).
+grouped = df.groupby('column_name')
+---------------
+Aggregates data based on groupby.
+agg_df = grouped.agg({'numeric_column': 'mean'})
+---------------
+Applies a function along an axis.
+df['new_column'] = df['existing_column'].apply(lambda x: x * 2)
+---------------
+Sorts the DataFrame by one or more columns.
+df_sorted = df.sort_values(by='column_name', ascending=False)
+---------------
+Merges two DataFrames based on a key column.
+df_merged = pd.merge(df1, df2, on='key_column')
+---------------
+Concatenates DataFrames along a particular axis.
+df_concat = pd.concat([df1, df2], axis=0)
+---------------
+Creates a pivot table.
+pivot_df = df.pivot_table(values='value_column', index='index_column', columns='columns_column')
+---------------
+Sets a column as the index of the DataFrame.
+df_indexed = df.set_index('column_name')
+---------------
+Resets the index of the DataFrame.
+df_reset = df.reset_index(drop=True)
+---------------
+Accesses a group of rows and columns by labels.
+subset = df.loc[df['column_name'] > 10, ['col1', 'col2']]
+---------------
+Accesses a group of rows and columns by integer positions.
+subset = df.iloc[0:5, [1, 2]]
+---------------
+Drops specified labels from rows or columns.
+df_dropped = df.drop(['column_to_drop'], axis=1)
+---------------
+Writes DataFrame to a CSV file.
+df.to_csv('output.csv', index=False)
+---------------
+Reading and Displaying a CSV File
+
+import pandas as pd
+
+# Load data from a CSV file
+df = pd.read_csv('data.csv')
+
+# Display the first 5 rows
+print(df.head())
+---------------
+DataFrame Summary and Basic Statistics
+
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 40],
+    'Salary': [50000, 60000, 70000, 80000]
+}
+df = pd.DataFrame(data)
+
+# Display summary information
+print(df.info())
+
+# Display basic statistics
+print(df.describe())
+---------------
+Handling Missing Data
+
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with missing values
+data = {
+    'A': [1, 2, np.nan, 4],
+    'B': [5, np.nan, 7, 8]
+}
+df = pd.DataFrame(data)
+
+# Drop rows with any missing values
+df_dropped = df.dropna()
+
+# Fill missing values with a specific value
+df_filled = df.fillna(0)
+
+print("Dropped missing values:\n", df_dropped)
+print("Filled missing values:\n", df_filled)
+---------------
+Group By and Aggregation
+
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Department': ['HR', 'IT', 'HR', 'IT', 'Finance'],
+    'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Salary': [70000, 80000, 75000, 82000, 90000]
+}
+df = pd.DataFrame(data)
+
+# Group by Department and calculate average salary
+avg_salary = df.groupby('Department')['Salary'].mean()
+
+print("Average salary by department:\n", avg_salary)
+---------------
+Sorting Values
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 40],
+    'Salary': [50000, 60000, 70000, 80000]
+}
+df = pd.DataFrame(data)
+
+# Sort by Salary in descending order
+df_sorted = df.sort_values(by='Salary', ascending=False)
+
+print("Sorted DataFrame:\n", df_sorted)
+
+---------------
+Filtering Data
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 40],
+    'Salary': [50000, 60000, 70000, 80000]
+}
+df = pd.DataFrame(data)
+
+# Filter rows where Age is greater than 30
+filtered_df = df[df['Age'] > 30]
+
+print("Filtered DataFrame:\n", filtered_df)
+
+---------------
+Merging DataFrames
+
+import pandas as pd
+
+# Create two DataFrames
+df1 = pd.DataFrame({
+    'Employee': ['Alice', 'Bob', 'Charlie'],
+    'Department': ['HR', 'IT', 'Finance']
+})
+df2 = pd.DataFrame({
+    'Employee': ['Alice', 'Bob', 'Charlie'],
+    'Salary': [70000, 80000, 75000]
+})
+
+# Merge DataFrames on the 'Employee' column
+merged_df = pd.merge(df1, df2, on='Employee')
+
+print("Merged DataFrame:\n", merged_df)
+
+---------------
+Pivot Table Creation
+
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Date': ['2024-01-01', '2024-01-01', '2024-01-02', '2024-01-02'],
+    'Product': ['A', 'B', 'A', 'B'],
+    'Sales': [200, 150, 300, 250]
+}
+df = pd.DataFrame(data)
+
+# Create a pivot table
+pivot_table = df.pivot_table(values='Sales', index='Date', columns='Product', aggfunc='sum')
+
+print("Pivot Table:\n", pivot_table)
+
+---------------
+Set and Reset Index
+
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Employee': ['Alice', 'Bob', 'Charlie'],
+    'Salary': [70000, 80000, 75000]
+}
+df = pd.DataFrame(data)
+
+# Set 'Employee' column as index
+df_indexed = df.set_index('Employee')
+
+# Reset index to default integer index
+df_reset = df_indexed.reset_index()
+
+print("DataFrame with 'Employee' as index:\n", df_indexed)
+print("DataFrame with reset index:\n", df_reset)
+------------------------
+Applying Functions
+
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Salary': [70000, 80000, 75000]
+}
+df = pd.DataFrame(data)
+
+# Define a function to categorize salary
+def categorize_salary(salary):
+    if salary > 75000:
+        return 'High'
+    else:
+        return 'Medium'
+
+# Apply the function to the Salary column
+df['Salary_Category'] = df['Salary'].apply(categorize_salary)
+
+print("DataFrame with salary categories:\n", df)
+--------------------
