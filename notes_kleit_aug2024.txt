@@ -1721,3 +1721,41 @@ df['Salary_Category'] = df['Salary'].apply(categorize_salary)
 
 print("DataFrame with salary categories:\n", df)
 --------------------
+https://tinyurl.com/python-test-kleit
+
+-----------------------------
+def A():
+	insrt1
+	insrt2   b
+	insrt3
+	insrt4   
+	insrt5   b
+	insrt6
+	insrt7
+	
+A()
+B()
+C()
+D()
+
+To run program in Debug Mode, the command is:
+python -m pdb program15.py
+
+Alternatively, we can run the program in debug mode by adding the below 2 lines of code
+
+import pdb
+pdb.set_trace()
+
+n means next: moves to the next instruction without going inside the method/function
+
+s means step: steps inside the function
+
+b 10 means set a breakpoint at line #10
+
+c means continue: continue until next break point
+
+q means quit: Quit the pdb
+
+l means list: By default lists 1st 11 lines of the code of the file.
+If we run 'l' again, then it lists the next 11 lines of the file
+
